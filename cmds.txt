@@ -1,0 +1,2 @@
+DROP FUNCTION MySQLNotification;
+CREATE FUNCTION MySQLNotification RETURNS INTEGER SONAME 'mysql_notification.so';
