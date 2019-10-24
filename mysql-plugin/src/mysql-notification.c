@@ -92,7 +92,7 @@ void MySQLNotification_deinit(UDF_INIT *initid) {
     }
 }
 
-longlong MySQLNotification(UDF_INIT *initid,
+long long MySQLNotification(UDF_INIT *initid,
                            UDF_ARGS *args,
                            char *is_null,
                            char *error) {
