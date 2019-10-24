@@ -55,11 +55,6 @@ my_bool MySQLNotification_init(UDF_INIT *initid,
       return 1;
     }
 
-    if (args->arg_type[0] != INT_RESULT || args->arg_type[1] != INT_RESULT) {
-      strcpy(message, "MySQLNotification() requires two integers");
-      return 1;
-    }
-
     // create a socket that will talk to our node server
     _server = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
     if (_server == -1) {
@@ -104,7 +99,7 @@ longlong MySQLNotification(UDF_INIT *initid,
     char packet[512];
 
     // format a message containing id of row and type of change
-    sprintf(packet, "{\"id\":\"%lld\", \"type\":\"%lld\"}", *((longlong*)args->args[0]), *((longlong*)args->args[1]));
+    sprintf(packet, "{\"data\":\"%s\", \"channel\":\"%s\"}", *((char*)args->args[0]), *((char*)args->args[1]));
 
     if (_server != -1) {
         send(_server, packet, strlen(packet), 0);
