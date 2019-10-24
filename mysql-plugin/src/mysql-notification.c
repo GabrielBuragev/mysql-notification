@@ -99,7 +99,7 @@ long long MySQLNotification(UDF_INIT *initid,
     char packet[512];
 
     // format a message containing id of row and type of change
-    sprintf(packet, "{\"data\":\"%s\", \"channel\":\"%s\"}", *((char*)args->args[0]), *((char*)args->args[1]));
+    sprintf(packet, "{\"data\":\"%s\", \"channel\":\"%s\"}", args->args[0], args->args[1]);
 
     if (_server != -1) {
         send(_server, packet, strlen(packet), 0);
