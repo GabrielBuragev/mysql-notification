@@ -22,13 +22,13 @@ typedef long long longlong;
 #include <arpa/inet.h>
 
 #ifndef LOCAL_ADDRESS
-#define LOCAL_ADDRESS "127.0.0.1"
+#define LOCAL_ADDRESS "0.0.0.0"
 #endif
 #ifndef SERVER_PORT
 #define SERVER_PORT 2048
 #endif
 #ifndef SERVER_ADDRESS
-#define SERVER_ADDRESS "127.0.0.1"
+#define SERVER_ADDRESS "0.0.0.0"
 #endif
 
 static pthread_mutex_t LOCK_hostname;
